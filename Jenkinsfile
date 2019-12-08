@@ -10,8 +10,8 @@ node{
   stage('Maven Compile'){
     def mvnHome = tool name: 'Maven-test', type: 'maven'
    //sh "${mvnHome}/bin/mvn package"
-    sh "${mvnHome}/bin/mvn clean install -DskipTests"
-   //  sh "${mvnHome}/bin/mvn clean package -DskipTests"
+   // sh "${mvnHome}/bin/mvn clean install -DskipTests"
+     sh "${mvnHome}/bin/mvn clean package -DskipTests"
   }
   //Unit Test
   stage('Maven Test'){
