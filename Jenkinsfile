@@ -6,6 +6,12 @@ node{
   stage('SCM Checkout'){
     checkout scm
   }
+    
+   //Unit Test
+  stage('Maven Test'){
+    def mvnHome = tool name: 'Maven-test', type: 'maven'
+    sh "${mvnHome}/bin/mvn clean test"
+  }
   //Build
   stage('Maven Compile'){
     def mvnHome = tool name: 'Maven-test', type: 'maven'
@@ -13,11 +19,7 @@ node{
    // sh "${mvnHome}/bin/mvn clean install -DskipTests"
      sh "${mvnHome}/bin/mvn clean package -DskipTests"
   }
-  //Unit Test
-  stage('Maven Test'){
-    def mvnHome = tool name: 'Maven-test', type: 'maven'
-    sh "${mvnHome}/bin/mvn clean test"
-  }
+ 
  //Build Docker image
    stage('Build Docker Image') {
     app = docker.build("lduardo/docker-jenkins")
