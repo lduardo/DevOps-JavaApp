@@ -44,7 +44,7 @@ node{
        }
        stage('Performance Test'){
     def mvnHome = tool name: 'Maven-test', type: 'maven'
-     sh "${mvnHome}/bin/mvn clean verify"
+     sh "${mvnHome}/bin/mvn verify"
   }  
        
 }
