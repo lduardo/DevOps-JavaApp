@@ -42,6 +42,11 @@ node{
            sh "ssh -o StrictHostKeyChecking=no ubuntu@18.216.11.102 ${dockerclean}"
            sh "ssh -o StrictHostKeyChecking=no ubuntu@18.216.11.102 ${dockerRun}"
        }
+       stage('Performance Test'){
+    def mvnHome = tool name: 'Maven-test', type: 'maven'
+     sh "${mvnHome}/bin/mvn clean verify"
+  }  
+       
 }
 }  
     
