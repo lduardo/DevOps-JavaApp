@@ -44,9 +44,9 @@ node{
        def dockerRun = 'docker run -d -p 8080:8080 --name=java-app lduardo/docker-jenkins:master'
        def dockerclean = 'docker system prune -f'
        sshagent(['app-server']) {
-           sh "ssh -o StrictHostKeyChecking=no ubuntu@18.219.112.162 ${dockerstopApp}"
-           sh "ssh -o StrictHostKeyChecking=no ubuntu@18.219.112.162 ${dockerclean}"
-           sh "ssh -o StrictHostKeyChecking=no ubuntu@18.219.112.162 ${dockerRun}"
+           sh "ssh -o StrictHostKeyChecking=no ubuntu@13.58.66.115 ${dockerstopApp}"
+           sh "ssh -o StrictHostKeyChecking=no ubuntu@13.58.66.115 ${dockerclean}"
+           sh "ssh -o StrictHostKeyChecking=no ubuntu@13.58.66.115 ${dockerRun}"
        }
     
 }
